@@ -24,10 +24,10 @@ dataSource.initialize()
     });
 
 // Define routes
-app.use('/books', bookRoutes);
-app.use('/authors', authorRoutes);
-app.use('/users', userRoutes);
-app.use('/audit-logs', auditLogRoutes);
+app.use('/api', bookRoutes);
+app.use('/api', authorRoutes);
+app.use('/api', userRoutes);
+app.use('/api', auditLogRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
