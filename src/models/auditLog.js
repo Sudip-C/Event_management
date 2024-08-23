@@ -14,7 +14,7 @@ class AuditLog {
     action = ''; // e.g., 'borrow', 'return'
 
     @Column({ type: 'varchar' })
-    bookId = '';
+    details = '';
 
     @Column({ type: 'date' })
     timestamp = new Date();
