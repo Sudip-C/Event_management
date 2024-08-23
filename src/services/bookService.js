@@ -72,9 +72,9 @@ class BookService {
                 details: `User ${UserObjectId} borrowed book ${BookObjectId}`,
                 timestamp: new Date(),
             });
-           res.status(200).json({message:'Audit log entry created successfully.'});
+           console.log('Audit log entry created successfully.');
         } catch (error) {
-            res.status(400).json({error: error});
+            throw new Error(error);
         }
 
         return book;
