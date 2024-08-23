@@ -1,8 +1,8 @@
 # Library Management System API Documentation
 
-This API provides functionality for managing books, authors, users, and audit logs in a library management system. It also allows users to borrow and return books with constraints and logs all user actions.
+This API provides functionality for managing books, users, and audit logs in a library management system. It also allows users to borrow and return books with constraints and logs all user actions.
 
-Base URL
+
 ### Base URL: https://event-management-pscm.onrender.com/api
 
 
