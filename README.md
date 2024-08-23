@@ -118,14 +118,22 @@ Response: JSON object of the returned book.
 
 4. Audit Log Endpoints
 # Get All Audit Logs
-# URL: /audit-logs/audit-logs
+# URL: /audit-logs
 # Method: GET
 Response: JSON array of all audit logs.
 
 
 # Get Audit Logs by User ID
-# URL: /audit-logs/audit-logs/user/:userId
+# URL: /audit-logs/user/:userId
 # Method: GET
 URL Parameters:
 userId (string) - User ID
 Response: JSON array of audit logs for the specified user.
+
+# Get Audit Logs by Action
+# URL: /audit-logs/action/:action
+# Method: GET
+
+URL Parameters:
+Action (string) - Borrow or Return
+Response: JSON array of audit logs for the specified action.
