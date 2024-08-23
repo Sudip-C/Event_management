@@ -94,13 +94,18 @@ class BookService {
             throw new Error('Book is not currently borrowed');
         }
 
-        if (!user.borrowedBooks.includes(BookObjectId)) {
-            throw new Error('Book was not borrowed by this user');
-        }
+        const bookIndex = user.borrowedBooks.findIndex(borrowedBookId => borrowedBookId.equals(BookObjectId));
 
-        book.isBorrowed = false;
-        book.dueDate = null;
-        user.borrowedBooks = user.borrowedBooks.filter(id => id !== BookObjectId);
+    if (bookIndex === -1) {
+        throw new Error('Book is not borrowed by this user');
+    }
+
+    // Remove the book from the user's borrowedBooks list
+    user.borrowedBooks.splice(bookIndex, 1);
+
+    // Mark the book as not borrowed
+    book.isBorrowed = false;
+    book.dueDate = null;
 
         await this.bookRepository.save(book);
         await this.userRepository.save(user);
@@ -113,9 +118,9 @@ class BookService {
                 details: `User ${UserObjectId} borrowed book ${BookObjectId}`,
                 timestamp: new Date(),
             });
-           res.status(200).json({message:'Audit log entry created successfully.'});
+            console.log('Audit log entry created successfully.');
         } catch (error) {
-            res.status(400).json({error: error});
+            console.error('Failed to create audit log:', error);
         }
 
         return book;
