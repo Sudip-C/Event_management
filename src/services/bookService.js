@@ -68,9 +68,9 @@ class BookService {
         // Log the borrowing action
         try {
             await this.auditLogService.createAuditLog({
-                UserObjectId,
+                userId: UserObjectId,
                 action: 'Borrow',
-                details: `User ${UserObjectId} borrowed book ${BookObjectId}`,
+                details: `User ${user.name} borrowed book ${book.title}`,
                 timestamp: new Date(),
             });
            console.log('Audit log entry created successfully.');
@@ -114,9 +114,9 @@ class BookService {
         // Log the returning action
         try {
             await this.auditLogService.createAuditLog({
-                UserObjectId,
+                userId:UserObjectId,
                 action: 'Return',
-                details: `User ${UserObjectId} borrowed book ${BookObjectId}`,
+                details: `User ${user.name} returned book ${book.title}`,
                 timestamp: new Date(),
             });
             console.log('Audit log entry created successfully.');
