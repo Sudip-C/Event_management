@@ -1,5 +1,6 @@
 // src/services/bookService.js
 const { ObjectId } = require('mongodb');
+const AuditLogService = require('./auditLogService');
 
 class BookService {
     constructor(bookRepository, userRepository, auditLogRepository) {
