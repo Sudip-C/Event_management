@@ -4,6 +4,7 @@ const BookService = require('../services/bookService');
 const BookRepository = require('../repositories/bookRepository');
 const UserRepository = require('../repositories/userRepository');
 const AuditLogRepository = require('../repositories/auditLogRepository');
+const AuditLogService = require('../services/auditLogService'); 
 const dataSource = require('../config/data-source');
 const { ObjectId } = require('mongodb'); 
 
@@ -11,6 +12,7 @@ const router = Router();
 const bookRepository = new BookRepository(dataSource);
 const userRepository = new UserRepository(dataSource);
 const auditLogRepository = new AuditLogRepository(dataSource);
+const auditLogService = new AuditLogService(auditLogRepository);
 const bookService = new BookService(bookRepository, userRepository, auditLogRepository);
 
 // Create a new book
