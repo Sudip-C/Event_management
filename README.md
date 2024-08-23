@@ -105,6 +105,7 @@ Response: JSON object of the updated book.
 # Delete a Book
 
 > DELETE: /books/:id
+
 URL Parameters:
 id (string) - Book ID
 
