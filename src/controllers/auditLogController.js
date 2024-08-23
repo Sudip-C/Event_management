@@ -22,7 +22,7 @@ router.get('/', async (req, res) => {
 // Get audit logs by user ID
 router.get('/user/:userId', async (req, res) => {
     try {
-        const logs = await auditLogService.getLogsByUser(req.params.userId);
+        const logs = await auditLogService.getLogsByUser(new ObjectId(req.params.userId));
         res.json(logs);
     } catch (error) {
         res.status(400).json({ error: error.message });
@@ -32,7 +32,7 @@ router.get('/user/:userId', async (req, res) => {
 // Get audit logs by action
 router.get('/action/:action', async (req, res) => {
     try {
-        const logs = await auditLogService.getLogsByAction(new ObjectId(req.params.action));
+        const logs = await auditLogService.getLogsByAction((req.params.action));
         res.json(logs);
     } catch (error) {
         res.status(400).json({ error: error.message });
