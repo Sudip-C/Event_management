@@ -11,7 +11,7 @@ class AuditLog {
     userId = '';
 
     @Column({ type: 'varchar' })
-    action = ''; // e.g., 'borrow', 'return'
+    action = ''; 
 
     @Column({ type: 'varchar' })
     details = '';

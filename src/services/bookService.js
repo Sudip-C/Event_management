@@ -2,11 +2,11 @@
 const { ObjectId } = require('mongodb');
 
 class BookService {
-    constructor(bookRepository, userRepository, auditLogRepository,auditLogService) {
+    constructor(bookRepository, userRepository, auditLogRepository) {
         this.bookRepository = bookRepository;
         this.userRepository = userRepository;
         this.auditLogRepository = auditLogRepository;
-        this.auditLogService = auditLogService;
+        this.auditLogService = new AuditLogService(auditLogRepository); 
     }
 
     async createBook(bookData) {
