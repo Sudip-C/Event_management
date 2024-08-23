@@ -11,6 +11,7 @@ Base URL
 ### Create a New User
 
 > POST : /users
+
 Body Parameters:
 name (string) - User's name
 email (string) - User's email
@@ -21,85 +22,100 @@ Response: JSON object of the created user.
 ### Get All Users
 
 > GET:/users
+
 Response: JSON array of all users.
 
 ### Get a User by ID
 
 > GET: /users/:id
+
 URL Parameters:
 id (string) - User ID
+
 Response: JSON object of the user.
 
 
 ## Update a User
 
 > Method: PUT : /users/:id
+
 URL Parameters:
 id (string) - User ID
 Body Parameters: Any combination of:
 name (string)
 email (string)
 password (string)
+
 Response: JSON object of the updated user.
 
 
 ## Delete a User
-### URL: /users/:id
-> Method: DELETE
+
+> DELETE: /users/:id
+
 URL Parameters:
 id (string) - User ID
+
 Response: Status 204 if the deletion is successful.
 
 
 2. Book Endpoints
 ## Create a New Book
-### URL: /books
-> Method: POST
+
+> POST: /books
+
 Body Parameters:
 title (string) - Title of the book
 authorId (string) - Author ID
 publishedDate (string) - Published date
-isbn (string) - ISBN number
+
 Response: JSON object of the created book.
 
 
 ## Get All Books
-### URL: /books
-> Method: GET
+
+> GET : /books
+
 Response: JSON array of all books.
 
 
 ## Get a Book by ID
-### URL: /books/:id
-> Method: GET
+ 
+> GET:/books/:id
+
 URL Parameters:
 id (string) - Book ID
+
 Response: JSON object of the book.
 
 
 # Update a Book
-# URL: /books/:id
-# Method: PUT
+
+> PUT: /books/:id
+
 URL Parameters:
 Body Parameters: Any combination of:
 title (string)
 authorId (string)
 publishedDate (string)
+
 Response: JSON object of the updated book.
 
 
 # Delete a Book
-# URL: /books/:id
-# Method: DELETE
+
+> DELETE: /books/:id
 URL Parameters:
 id (string) - Book ID
+
 Response: Status 204 if the deletion is successful.
 
 
 3. Borrowing and Returning Books
 # Borrow a Book
-# URL: /books/borrow
-# Method: POST
+ 
+> POST :/books/borrow
+
 Body Parameters:
 userId (string) - User ID
 bookId (string) - Book ID
@@ -108,8 +124,9 @@ Response: JSON object of the borrowed book.
 
 
 # Return a Book
-# URL: /books/return
-# Method: POST
+
+> POST: /books/return
+
 Body Parameters:
 userId (string) - User ID
 bookId (string) - Book ID
@@ -118,22 +135,26 @@ Response: JSON object of the returned book.
 
 4. Audit Log Endpoints
 # Get All Audit Logs
-# URL: /audit-logs
-# Method: GET
+
+> GET: /audit-logs
+
 Response: JSON array of all audit logs.
 
 
 # Get Audit Logs by User ID
-# URL: /audit-logs/user/:userId
-# Method: GET
+
+> GET: /audit-logs/user/:userId
+
 URL Parameters:
 userId (string) - User ID
+
 Response: JSON array of audit logs for the specified user.
 
 # Get Audit Logs by Action
-# URL: /audit-logs/action/:action
-# Method: GET
+
+> GET /audit-logs/action/:action
 
 URL Parameters:
 Action (string) - Borrow or Return
+
 Response: JSON array of audit logs for the specified action.
