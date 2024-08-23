@@ -19,13 +19,13 @@ password (string) - User's password
 
 Response: JSON object of the created user.
 
-### Get All Users
+## Get All Users
 
 > GET:/users
 
 Response: JSON array of all users.
 
-### Get a User by ID
+## Get a User by ID
 
 > GET: /users/:id
 
@@ -89,7 +89,7 @@ id (string) - Book ID
 Response: JSON object of the book.
 
 
-# Update a Book
+## Update a Book
 
 > PUT: /books/:id
 
@@ -102,7 +102,7 @@ publishedDate (string)
 Response: JSON object of the updated book.
 
 
-# Delete a Book
+## Delete a Book
 
 > DELETE: /books/:id
 
@@ -113,7 +113,7 @@ Response: Status 204 if the deletion is successful.
 
 
 3. Borrowing and Returning Books
-# Borrow a Book
+## Borrow a Book
  
 > POST :/books/borrow
 
@@ -124,7 +124,7 @@ dueDate (string) - Due date for returning the book
 Response: JSON object of the borrowed book.
 
 
-# Return a Book
+## Return a Book
 
 > POST: /books/return
 
@@ -135,14 +135,14 @@ Response: JSON object of the returned book.
 
 
 4. Audit Log Endpoints
-# Get All Audit Logs
+## Get All Audit Logs
 
 > GET: /audit-logs
 
 Response: JSON array of all audit logs.
 
 
-# Get Audit Logs by User ID
+## Get Audit Logs by User ID
 
 > GET: /audit-logs/user/:userId
 
@@ -151,7 +151,7 @@ userId (string) - User ID
 
 Response: JSON array of audit logs for the specified user.
 
-# Get Audit Logs by Action
+## Get Audit Logs by Action
 
 > GET /audit-logs/action/:action
 
