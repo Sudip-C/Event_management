@@ -3,14 +3,14 @@
 This API provides functionality for managing books, authors, users, and audit logs in a library management system. It also allows users to borrow and return books with constraints and logs all user actions.
 
 Base URL
-# Base URL: https://event-management-pscm.onrender.com/api
+### Base URL: https://event-management-pscm.onrender.com/api
 
 
-# Endpoints
+
 1. User Endpoints
-# Create a New User
-# URL: /users
-# Method: POST
+### Create a New User
+
+> POST : /users
 Body Parameters:
 name (string) - User's name
 email (string) - User's email
@@ -18,22 +18,22 @@ password (string) - User's password
 
 Response: JSON object of the created user.
 
-# Get All Users
-# URL: /users
-# Method: GET
+### Get All Users
+
+> GET:/users
 Response: JSON array of all users.
 
-# Get a User by ID
-# URL: /users/:id
-# Method: GET
+### Get a User by ID
+
+> GET: /users/:id
 URL Parameters:
 id (string) - User ID
 Response: JSON object of the user.
 
 
-# Update a User
-# URL: /users/:id
-# Method: PUT
+## Update a User
+
+> Method: PUT : /users/:id
 URL Parameters:
 id (string) - User ID
 Body Parameters: Any combination of:
@@ -43,18 +43,18 @@ password (string)
 Response: JSON object of the updated user.
 
 
-# Delete a User
-# URL: /users/:id
-# Method: DELETE
+## Delete a User
+### URL: /users/:id
+> Method: DELETE
 URL Parameters:
 id (string) - User ID
 Response: Status 204 if the deletion is successful.
 
 
 2. Book Endpoints
-# Create a New Book
-# URL: /books
-# Method: POST
+## Create a New Book
+### URL: /books
+> Method: POST
 Body Parameters:
 title (string) - Title of the book
 authorId (string) - Author ID
@@ -63,15 +63,15 @@ isbn (string) - ISBN number
 Response: JSON object of the created book.
 
 
-# Get All Books
-# URL: /books
-# Method: GET
+## Get All Books
+### URL: /books
+> Method: GET
 Response: JSON array of all books.
 
 
-# Get a Book by ID
-# URL: /books/:id
-# Method: GET
+## Get a Book by ID
+### URL: /books/:id
+> Method: GET
 URL Parameters:
 id (string) - Book ID
 Response: JSON object of the book.
