@@ -2,7 +2,7 @@
 const { ObjectId } = require('mongodb');
 
 class BookService {
-    constructor(bookRepository, userRepository, auditLogRepository) {
+    constructor(bookRepository, userRepository, auditLogRepository,auditLogService) {
         this.bookRepository = bookRepository;
         this.userRepository = userRepository;
         this.auditLogRepository = auditLogRepository;
