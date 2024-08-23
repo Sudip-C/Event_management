@@ -6,6 +6,7 @@ class BookService {
         this.bookRepository = bookRepository;
         this.userRepository = userRepository;
         this.auditLogRepository = auditLogRepository;
+        this.auditLogService = auditLogService;
     }
 
     async createBook(bookData) {
@@ -64,12 +65,17 @@ class BookService {
         await this.userRepository.save(user);
 
         // Log the borrowing action
-        await this.auditLogRepository.create({
-            UserObjectId,
-            action: 'borrow',
-            BookObjectId,
-            timestamp: new Date(),
-        });
+        try {
+            await this.auditLogService.createAuditLog({
+                UserObjectId,
+                action: 'Borrow',
+                details: `User ${UserObjectId} borrowed book ${BookObjectId}`,
+                timestamp: new Date(),
+            });
+           res.status(200).json({message:'Audit log entry created successfully.'});
+        } catch (error) {
+            res.status(400).json({error: error});
+        }
 
         return book;
     }
@@ -100,12 +106,17 @@ class BookService {
         await this.userRepository.save(user);
 
         // Log the returning action
-        await this.auditLogRepository.create({
-            UserObjectId,
-            action: 'return',
-            BookObjectId,
-            timestamp: new Date(),
-        });
+        try {
+            await this.auditLogService.createAuditLog({
+                UserObjectId,
+                action: 'Return',
+                details: `User ${UserObjectId} borrowed book ${BookObjectId}`,
+                timestamp: new Date(),
+            });
+           res.status(200).json({message:'Audit log entry created successfully.'});
+        } catch (error) {
+            res.status(400).json({error: error});
+        }
 
         return book;
     }
